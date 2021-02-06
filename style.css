@@ -12,12 +12,19 @@ body {
 	border-bottom: 1px solid #333;
 	display: flex;
     align-items: flex-end;
+    position: relative;
+    overflow: hidden;
 }
 
 .game .game__dino {
 	width: 60px;
 	height: 60px;
 	background: url(img/dino.png) no-repeat;
+	position: relative;
+}
+
+.game .game__dino.jump {
+	animation: jump 0.8s linear;
 }
 
 .game .game__cactus {
@@ -25,5 +32,46 @@ body {
 	width: 25px; 
 	height: 45px;
 	background-size: contain;
-	margin-left: auto;
+	animation: cactusMove 3s infinite linear;
+	position: absolute;
+	right: 0;
+}
+
+
+
+
+
+
+@keyframes jump {
+	0% {
+		top: 0px;
+	}
+	20% {
+		top: -30px;
+	}
+	40% {
+		top: -55px;
+	}
+	50% {
+		top: -65px;
+	}
+	60% {
+		top: -55px
+	}
+	80% {
+		top: -30px
+	}
+
+	100% {
+		top: 0px;
+	}
+}
+
+@keyframes cactusMove {
+	0% {
+		right: 0;
+	}
+	100% {
+		right: 550px;
+	}
 }
