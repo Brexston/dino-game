@@ -9,10 +9,20 @@ document.addEventListener("keydown", function(e) {
 
 function dinoJump() {
 	if(!dino.classList.contains("jump")) {
-    	dino.classList.add('jump');
+    	dino.classList.toggle('jump');
     }
 
     setTimeout(function() {
-    	dino.classList.remove('jump');
+    	dino.classList.toggle('jump');
     }, 800);
 }
+
+setInterval(function() {
+	let dinoPosition = parseInt(window.getComputedStyle(dino).getPropertyValue('top'));
+	let cactusPosition = parseInt(window.getComputedStyle(cactus).getPropertyValue('right'));
+	
+	if (cactusPosition > 440 && cactusPosition < 525 && dinoPosition >= -45) {
+		alert('Dead')
+	}
+
+}, 100);

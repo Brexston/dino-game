@@ -47,19 +47,19 @@ body {
 		top: 0px;
 	}
 	20% {
-		top: -30px;
+		top: -40px;
 	}
 	40% {
-		top: -55px;
-	}
-	50% {
 		top: -65px;
 	}
+	50% {
+		top: -85px;
+	}
 	60% {
-		top: -55px
+		top: -65px
 	}
 	80% {
-		top: -30px
+		top: -40px
 	}
 
 	100% {
