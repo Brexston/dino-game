@@ -1,15 +1,17 @@
 const game = document.querySelector(".game")
 const dino = document.querySelector('.game__dino');
 const cactus = document.querySelector('.game__cactus');
-let stats = document.querySelector('.game__stats');
+let score = document.querySelector('.game__score-current');
+let record = document.querySelector('.game__score-record span');
 let scoreCounter;
+let currentScore = 0;
 let bestScore;
+
 
 
 document.addEventListener("keydown", function(e) {
     if (e.keyCode == 32 && game.classList.contains("play")) {
-        dinoJump();
-       
+        dinoJump(); 
     }
     else {
     	 startGame();
@@ -27,6 +29,7 @@ function startGame() {
 function stopGame() {
     game.classList.remove('play');
     clearInterval(scoreCounter);
+    calcHighScore();
 }
 
 function dinoJump() {
@@ -55,6 +58,14 @@ function startScore() {
    let i = 0;
    scoreCounter = setInterval(function() {
     	i++
-    	stats.innerHTML = i;
+    	bestScore = i;
+    	score.innerHTML = i;
     }, 200);
+}
+
+function calcHighScore() {
+	if (bestScore > currentScore) {
+		record.innerHTML = bestScore;
+		currentScore = bestScore;
+	}
 }

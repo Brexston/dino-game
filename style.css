@@ -54,12 +54,25 @@ body {
     right: 0;
 }
 
-.game .game__stats {
+.game .game__score {
 	position: absolute;
     right: 0;
     top: 70px;
     font-size: 13px;
     color: #4e4e4e;
+    display: flex;
+}
+
+.game .game__score-record, .game .game__score-current {
+	min-width: 50px;
+	text-align: right;
+}
+.game .game__score-record {
+	color: #949494;
+	
+}
+.game .game__score-record.active {
+	display: block;
 }
 
 
