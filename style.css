@@ -4,6 +4,7 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    font-family: 'Audiowide', cursive;
 }
 
 .game {
@@ -53,14 +54,13 @@ body {
     right: 0;
 }
 
-.game.play .game__cactus {
-    animation: cactusMove 2s infinite linear;
+.game .game__stats {
+	position: absolute;
+    right: 0;
+    top: 70px;
+    font-size: 13px;
+    color: #4e4e4e;
 }
-
-.game.play .game__cactus {
-    animation: cactusMove 2s infinite linear;
-}
-
 
 
 @keyframes backgroundSlide {
@@ -79,11 +79,11 @@ body {
     }
 
     20% {
-        top: -40px;
+        top: -45px;
     }
 
     40% {
-        top: -65px;
+        top: -75px;
     }
 
     50% {
@@ -91,11 +91,11 @@ body {
     }
 
     60% {
-        top: -65px
+        top: -75px
     }
 
     80% {
-        top: -40px
+        top: -45px
     }
 
     100% {

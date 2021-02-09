@@ -1,23 +1,32 @@
 const game = document.querySelector(".game")
 const dino = document.querySelector('.game__dino');
 const cactus = document.querySelector('.game__cactus');
+let stats = document.querySelector('.game__stats');
+let scoreCounter;
+let bestScore;
+
 
 document.addEventListener("keydown", function(e) {
-    if (e.keyCode == 32) {
+    if (e.keyCode == 32 && game.classList.contains("play")) {
         dinoJump();
-        startGame();
+       
+    }
+    else {
+    	 startGame();
     }
 });
 
 function startGame() {
     if (!game.classList.contains("play")) {
         game.classList.toggle('play');
+        startScore();
     }
-
+    
 }
 
 function stopGame() {
     game.classList.remove('play');
+    clearInterval(scoreCounter);
 }
 
 function dinoJump() {
@@ -40,3 +49,12 @@ setInterval(function() {
     }
 
 }, 100);
+
+
+function startScore() {
+   let i = 0;
+   scoreCounter = setInterval(function() {
+    	i++
+    	stats.innerHTML = i;
+    }, 200);
+}
