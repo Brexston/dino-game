@@ -5,18 +5,24 @@ let score = document.querySelector('.game__score-current');
 let record = document.querySelector('.game__score-record span');
 let gameOver = document.querySelector('.game__end');
 let scoreCounter;
-let currentScore = 0;
 let bestScore;
 
-
+if (!localStorage.bestScore) {
+	localStorage.bestScore = 0
+}
+record.innerHTML = localStorage.bestScore;
 
 document.addEventListener("keydown", function(e) {
     if (e.keyCode == 32 && game.classList.contains("play")) {
-        dinoJump(); 
-    }
+        dinoJump();
+    } 
     else {
-    	 startGame();
+        startGame();
     }
+});
+
+gameOver.addEventListener('click', function() {
+	startGame();
 });
 
 function startGame() {
@@ -24,15 +30,14 @@ function startGame() {
         game.classList.toggle('play');
         gameOver.classList.remove('active')
         startScore();
-
     }
-    
+
 }
 
 function stopGame() {
     game.classList.remove('play');
     clearInterval(scoreCounter);
-    calcHighScore();
+    calcBestScore();
     gameOver.classList.add('active');
 }
 
@@ -58,17 +63,17 @@ setInterval(function() {
 
 
 function startScore() {
-   let i = 0;
-   scoreCounter = setInterval(function() {
-    	i++
-    	bestScore = i;
-    	score.innerHTML = i;
+    let i = 0;
+    scoreCounter = setInterval(function() {
+        i++
+        bestScore = i;
+        score.innerHTML = i;
     }, 200);
 }
 
-function calcHighScore() {
-	if (bestScore > currentScore) {
-		record.innerHTML = bestScore;
-		currentScore = bestScore;
-	}
+function calcBestScore() {
+    if (bestScore > localStorage.bestScore) {
+        record.innerHTML = bestScore;
+        localStorage.bestScore = bestScore;
+    }
 }

@@ -84,13 +84,14 @@ body {
     color: #4e4e4e;
     display: none;
 }
-.game .game__end.active { 
-	display: flex;
-}
 
 .game .game__end img { 
 	margin-top: 8px;
 }
+.game .game__end.active { 
+	display: flex;
+}
+
 
 
 
