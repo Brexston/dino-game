@@ -69,11 +69,29 @@ body {
 }
 .game .game__score-record {
 	color: #949494;
-	
 }
-.game .game__score-record.active {
-	display: block;
+
+.game .game__end { 
+	position: absolute;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+    letter-spacing: 10px;
+    font-size: 25px;
+    color: #4e4e4e;
+    display: none;
 }
+.game .game__end.active { 
+	display: flex;
+}
+
+.game .game__end img { 
+	margin-top: 8px;
+}
+
 
 
 @keyframes backgroundSlide {

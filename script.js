@@ -3,6 +3,7 @@ const dino = document.querySelector('.game__dino');
 const cactus = document.querySelector('.game__cactus');
 let score = document.querySelector('.game__score-current');
 let record = document.querySelector('.game__score-record span');
+let gameOver = document.querySelector('.game__end');
 let scoreCounter;
 let currentScore = 0;
 let bestScore;
@@ -21,7 +22,9 @@ document.addEventListener("keydown", function(e) {
 function startGame() {
     if (!game.classList.contains("play")) {
         game.classList.toggle('play');
+        gameOver.classList.remove('active')
         startScore();
+
     }
     
 }
@@ -30,6 +33,7 @@ function stopGame() {
     game.classList.remove('play');
     clearInterval(scoreCounter);
     calcHighScore();
+    gameOver.classList.add('active');
 }
 
 function dinoJump() {
@@ -47,7 +51,6 @@ setInterval(function() {
     let cactusPosition = parseInt(window.getComputedStyle(cactus).getPropertyValue('right'));
 
     if (cactusPosition > 450 && cactusPosition < 525 && dinoPosition >= -45) {
-        alert("GAME OVER");
         stopGame();
     }
 
